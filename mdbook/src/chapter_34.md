@@ -1,5 +1,5 @@
 # Interactions
-
+```plantuml
 @startuml ExtrusionProcess
 ' Title of the diagram
 title Extrusion and Material Processing Flow
@@ -22,19 +22,23 @@ component Press as "Press Machine" {
     [Speed]
     [Rail Position]
     [Cylinder]
+    [Temperature Control]
 
 }
 
 ' Material flow and actions
 [Thermoplastic Material] -> [Hot Material] : Material Processed
 [Hot Material] --> [Pulling Mechanism] : **Is Extruded**
+[Infrared Lamp] --> [Hot Material] : Keeping Temperature
+
+
 
 ' Movement and Processing of the Material
 [Pulling Mechanism] --> [Processing Area] : Pulled Material
 
 ' Description of movements in the Press
-[Processing Area] .down.> [Moving Rails] : **Input Position**
-[Processing Area] .down.> [Pressing Cylinder] : **Pressing/Opening Action**
+[Processing Area] -down-> [Moving Rails] : **Input Position**
+[Processing Area] -down-> [Pressing Cylinder] : **Pressing/Opening Action**
 
 [Processing Area] --> [Processed Material] : Finished Material
 note right of [Processing Area]
@@ -51,11 +55,12 @@ legend right
 end legend
 
 'Synchronization of the whole process
-[Speed] --> [Pulling Mechanism] : Pulled Material Speed
-[Hot Material] --> [Speed] : Pulled Material Speed
-[Speed] --> [Moving Rails] : Pulled Material Speed
-[Rail Position] --> [Moving Rails] : Initial/Final position
-[Cylinder] --> [Pressing Cylinder] : Pressing/Opening action
+[Speed] .right.> [Pulling Mechanism] : Pulled Material Speed
+[Hot Material] .right.> [Speed] : Pulled Material Speed
+[Speed] .right.> [Moving Rails] : Pulled Material Speed
+[Rail Position] ..> [Moving Rails] : Initial/Final position
+[Cylinder] ..> [Pressing Cylinder] : Pressing/Opening action
+[Temperature Control] ..> [Infrared Lamp] : Temperature Manegement
 @enduml
-
+```
 
