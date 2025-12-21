@@ -64,8 +64,8 @@ end note
 legend right
   - [] : State or Product
   - component : Machinery or System
-  - --> : Material Flow
-  - .> : Mechanical Action or Movement
+  - --> : Process Flow
+  - .> : Synchronization input/output
 end legend
 [Processed Material] -up-> [Cooling System] : **Pressing/Opening 
 
