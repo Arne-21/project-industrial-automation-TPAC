@@ -3,13 +3,13 @@
 @startuml ExtrusionProcess
 ' Title of the diagram
 title Extrusion and Material Processing Flow
-skinparam ArrowThickness 1.2
+skinparam ArrowThickness 1.5
 
 skinparam component<<dashed>> {
     BorderStyle dashed
 }
 skinparam component<<Solid>> {
-    BorderStyle LineThickness 4
+    BorderStyle LineThickness 6
 }
 package StartingMaterial as "Starting Material" {
   [Thermoplastic Material]
@@ -70,9 +70,9 @@ end legend
 [Processed Material] -up-> [Cooling System] : **Pressing/Opening 
 
 'Synchronization of the whole process
-[Speed] .right.> [Pulling Mechanism] : Pulled Material Speed
-[Hot Material] .right.> [Speed] : Pulled Material Speed
-[Speed] .right.> [Moving Rails] : Pulled Material Speed
+[Speed] ..> [Pulling Mechanism] : Pulled Material Speed
+[Hot Material] ..> [Speed] : Pulled Material Speed
+[Speed] ..> [Moving Rails] : Pulled Material Speed
 [Rail Position] ..> [Moving Rails] : Initial/Final position
 [Cylinder] ..> [Pressing Cylinder] : Pressing/Opening action
 [Temperature Control] ..> [Infrared Lamp] : Temperature Manegement

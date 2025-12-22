@@ -22,10 +22,10 @@ User -> Synchronization : Start the machine
 extruder -> Synchronization : Material speed
 Synchronization -> haul_off : Speed Synchronization
 Synchronization -> rail : Speed Synchronization
-Synchronization -> InfraredLamp : Start heating, and keep the desired position
+Synchronization -> InfraredLamp : Start heating, and keep the desired temperature
 InfraredLamp -> Synchronization : Temperature reached
 Synchronization -> haul_off : Start pullung material
-Synchronization -> CoolingSystem : Start colling, and keep to the desire position
+Synchronization -> CoolingSystem : Start colling, and keep to the desire temperature
 
 == Production Cycle ==
 group Continuous Process
